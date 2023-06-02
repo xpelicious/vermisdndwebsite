@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Splash Page</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      background-color: #000000; /* black background */
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .splash-container {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .splash-heading,
+    .splash-content {
+      font-size: 18px;
+      color: #ffffff; /* white text */
+    }
+    .splash-heading {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .home-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ffffff; /* white button background */
+      color: #000000; /* black button text */
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+    .home-button:hover {
+      background-color: #dddddd; /* light gray button background on hover */
+    }
+    .portrait-frame {
+      margin-top: 20px;
+      border: 2px solid #ffffff; /* white border */
+      display: inline-block;
+      padding: 10px;
+    }
+    .portrait-image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .audio-player {
+      display: none; /* hide the audio player */
+    }
+	@keyframes vibration {
+  0% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  10% {
+    transform: translate(-1px, 1px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  20% {
+    transform: translate(1px, -1px);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  30% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  40% {
+    transform: translate(1px, 1px);
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  60% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  70% {
+    transform: translate(-1px, 1px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  90% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  100% {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.slight-vibration {
+  animation: vibration 0.3s infinite;
+}
+ .volume-button {
+      background-color: #ffffff; /* white button background */
+      color: #000000; /* black button text */
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var audioPlayer = document.getElementById("audioPlayer");
+      audioPlayer.autoplay = true; // autoplay the audio
+    });
+  </script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var audioPlayer = document.getElementById("audioPlayer");
+      var volumeButton = document.getElementById("volumeButton");
+
+      volumeButton.addEventListener("click", function() {
+        if (audioPlayer.muted) {
+          audioPlayer.muted = false;
+          volumeButton.innerText = "Mute";
+        } else {
+          audioPlayer.muted = true;
+          volumeButton.innerText = "Unmute";
+        }
+      });
+
+      audioPlayer.autoplay = true; // autoplay the audio
+    });
+  </script>
+</head>
+<body>
+
+  <div class="splash-container">
+  <div class="slight-vibration">    <h1 class="splash-heading">VERMIS</h1></div>
+ <div class="portrait-frame"> <img class="portrait-image" src="vermisintropicture.png" alt="Framed Portrait"> </div> 
+    <p class="splash-content">BETROTHED TO BYGONE WOES</p>
+    <p class="splash-content">THE LAND OF VERMIS BECKONS FOREVER MORE</p>
+    <a class="home-button" href="home.html">WILL YOU ANSWER</a>
+ 
+
+  <audio id="audioPlayer" class="audio-player" controls>
+    <source src="vermisintro.mp4" type="audio/mp4">
+    Your browser does not support the audio element.
+  </audio>
+  </div>
+    <button id="volumeButton" class="volume-button">Mute</button>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Classes Page</title>
+        <link rel="stylesheet" href="stylesheet.css" />
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: #000000; /* black background */
+                color: #ffffff; /* white text */
+                font-family: Arial, sans-serif;
+            }
+            .header_container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                height: 25vh;
+                justify-content: center;
+            }
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+            }
+            .portrait-frame {
+                width: 120px;
+                height: 300px;
+                margin: 20px;
+                border: 2px solid #333333; /* dark gray border */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+            .portrait-image {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(
+                    0,
+                    0,
+                    0,
+                    0.5
+                ); /* semi-transparent black background */
+                display: none;
+                justify-content: center;
+                align-items: center;
+            }
+            .modal-content {
+                background-color: #000000; /* white background */
+                padding: 20px;
+                border-radius: 4px;
+                max-width: 400px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header_container">
+            <h1 class="title">| VERMIS |</h1>
+            <h2>- CLASSES -</h2>
+            <div class="navbar">
+                <ul>
+                    <li><a href="classes.html">Classes</a></li>
+                    <li><a href="#">Gods</a></li>
+                    <li><a href="#">Afflictions</a></li>
+                    <li><a href="#">Lore</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Home</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="portrait-frame" onclick="openModal('class1')">
+                <img
+                    class="portrait-image"
+                    src="lostsoul.png"
+                    alt="Lost Soul"
+                />
+            </div>
+
+            <div class="portrait-frame" onclick="openModal('class2')">
+                <img class="portrait-image" src="madpricker.png" alt="Class 2" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class3')">
+                <img class="portrait-image" src="wasteoflife.png" alt="Class 3" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class4')">
+                <img class="portrait-image" src="murksage.png" alt="Class 4" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class5')">
+                <img class="portrait-image" src="wanderingangel.png" alt="Class 5" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class6')">
+                <img class="portrait-image" src="stonescholar.png" alt="Class 6" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class7')">
+                <img class="portrait-image" src="princessnail.png" alt="Class 7" />
+            </div>
+            <div class="portrait-frame" onclick="openModal('class8')">
+                <img class="portrait-image" src="infantseeker.png" alt="Class 8" />
+            </div>
+        </div>
+
+        <div id="classModal" class="modal">
+            <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                <p id="modalText"></p>
+                <button onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+        <script>
+                           function openModal(className) {
+                             var modal = document.getElementById("classModal");
+                             var title = document.getElementById("modalTitle");
+                             var text = document.getElementById("modalText");
+
+                             // Set the title and text based on the selected class
+                             switch (className) {
+                               case "class1":
+                                 title.textContent = "Lost Soul";
+                                 text.innerHTML = "<p>Lost Souls are heroes who have lost their way in life. They are individuals who once fought valiantly for a cause, but now struggle to find their purpose in the world. Despite their struggles, they are still seasoned combatants who have faced many horrors in their past.</p><p>https://tinyurl.com/5fv3j7ks more detail found here</p>";
+                                  break;
+            	case "class2":
+               title.textContent = "Mad Pricker";
+               text.innerHTML = "<p>Mad Prickers are mysterious and dangerous individuals whose origins are shrouded in mystery. They wear spiked armor, which is often infected with deadly diseases or toxins, and they are known to use their own bodies as weapons. Some say they are part of a cult or are mindless minions to an evil god, but the truth is uncertain.</p> <p>https://tinyurl.com/f6vpxwut More detail found here</p>";
+				break;
+            	case "class3":
+               title.textContent = "Waste of Life";
+               text.innerHTML = "<p>Description of Class 3 goes here.</p><p>Here's some more text.</p>";
+               break;
+            case "class4":
+               title.textContent = "Murk Sage";
+               text.innerHTML = "<p>Description of Class 4 goes here.</p><p>This is a different line.</p>";
+               break;
+             case "class5":
+               title.textContent = "Wandering Angel";
+               text.innerHTML = "<p>Description of Class 5 goes here.</p><p>Adding more content.</p>";
+               break;
+             case "class6":
+               title.textContent = "Stone Scholar";
+               text.innerHTML = "<p>Description of Class 6 goes here.</p><p>Another line of text.</p>";
+               break;
+             case "class7":
+               title.textContent = "Princess's Nail";
+               text.innerHTML = "<p>Description of Class 7 goes here.</p><p>And more text here.</p>";
+               break;
+             case "class8":
+               title.textContent = "Infant Seeker";
+               text.innerHTML = "<p>Description of Class 8 goes here.</p><p>Final line of text.</p>";
+               break;
+                               // Handle other cases...
+                             }
+
+                             modal.style.display = "flex";
+                           }
+
+                           function closeModal() {
+                             var modal = document.getElementById("classModal");
+                             modal.style.display = "none";
+                           }
+        </script>
+    </body>
+</html>

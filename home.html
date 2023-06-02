@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<title>VERMIS</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000000; /* black background */
+      color: #ffffff; /* white text */
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      justify-content: center;
+    }
+    .navbar {
+      background-color: #333333; /* dark gray navbar background */
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      width: 20%; /* Reduce the width to 50% */
+    }
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .navbar li {
+      margin-right: 20px; /* Add spacing between each Nav bar element */
+    }
+    .navbar a {
+      color: #ffffff; /* white navbar text */
+      text-decoration: none;
+      padding: 5px;
+    }
+    .navbar a:hover {
+      background-color: #666666; /* darker gray background on hover */
+    }
+    .title {
+      font-size: 36px;
+      text-transform: uppercase;
+      margin-top: 50px;
+    }
+    .audio-player {
+      display: none;
+    }
+    .mute-button {
+      display: inline-block;
+      background-color: transparent;
+      color: #ffffff; /* white text */
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+	
+@keyframes vibration {
+  0% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  10% {
+    transform: translate(-1px, 1px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  20% {
+    transform: translate(1px, -1px);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  30% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  40% {
+    transform: translate(1px, 1px);
+    box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  60% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  70% {
+    transform: translate(-1px, 1px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    box-shadow: -2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  90% {
+    transform: translate(0);
+    box-shadow: none;
+  }
+  100% {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.slight-vibration {
+  animation: vibration 0.3s infinite;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+      <div class="slight-vibration"> <h1 class="title">VERMIS</h1></div>
+  
+    <div class="navbar">
+      <ul>
+        <li><a href="classes.html">Classes</a></li>
+        <li><a href="#">Gods</a></li>
+        <li><a href="#">Afflictions</a></li>
+        <li><a href="#">Lore</a></li>
+        <li><a href="#">Locations</a></li>
+        <li><a href="#">Home</a></li>
+      </ul>
+    </div>
+
+    <audio id="audioPlayer" class="audio-player" autoplay>
+      <source src="vermishome.mp4" type="audio/mp4">
+      Your browser does not support the audio element.
+    </audio>
+
+    <button id="muteButton" class="mute-button">Mute</button>
+  </div>
+
+  <script>
+    var audioPlayer = document.getElementById("audioPlayer");
+    var muteButton = document.getElementById("muteButton");
+
+    // Toggle mute on button click
+    muteButton.addEventListener("click", function() {
+      if (audioPlayer.muted) {
+        audioPlayer.muted = false;
+        muteButton.textContent = "Mute";
+      } else {
+        audioPlayer.muted = true;
+        muteButton.textContent = "Unmute";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
