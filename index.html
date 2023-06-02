@@ -105,7 +105,7 @@
 .slight-vibration {
   animation: vibration 0.3s infinite;
 }
- .volume-button {
+ .mute-button {
       background-color: #ffffff; /* white button background */
       color: #000000; /* black button text */
       font-size: 16px;
@@ -126,16 +126,21 @@
    <script>
     document.addEventListener("DOMContentLoaded", function() {
       var audioPlayer = document.getElementById("audioPlayer");
-      var volumeButton = document.getElementById("volumeButton");
-
-      volumeButton.addEventListener("click", function() {
+      var muteButton = document.getElementById("muteButton");
+	  var volumeSlider = document.getElementById("volumeSlider"); // New volume slider
+	  
+      muteButton.addEventListener("click", function() {
         if (audioPlayer.muted) {
           audioPlayer.muted = false;
-          volumeButton.innerText = "Mute";
+          muteButton.innerText = "Mute";
         } else {
           audioPlayer.muted = true;
-          volumeButton.innerText = "Unmute";
+          muteButton.innerText = "Unmute";
         }
+      });
+	  
+	  volumeSlider.addEventListener("input", function() { // New event listener for volume slider
+		audioPlayer.volume = volumeSlider.value / 100; // Dividing by 100 because the volume is a value from 0.0 - 1.0
       });
 
       audioPlayer.autoplay = true; // autoplay the audio
@@ -157,7 +162,9 @@
     Your browser does not support the audio element.
   </audio>
   </div>
-    <button id="volumeButton" class="volume-button">Mute</button>
+    <button id="muteButton" class="mute-button">Mute</button>
+	
+	<input type="range" id="volumeSlider" min="0" max="100" value="100">
   </div>
 </body>
 </html>
