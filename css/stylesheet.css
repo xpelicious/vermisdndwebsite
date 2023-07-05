@@ -31,7 +31,7 @@ color: red;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	align-items: left;
+	align-items: left
 	padding: 20px;
 	height: 95vh; /* Set the height of the container to fill the viewport */
 }
@@ -146,6 +146,7 @@ color: red;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+	
 }
 .portrait-large-frame {
   margin-top: 20px;
